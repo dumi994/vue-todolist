@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <title>Vue-ToDoList</title>
+</head>
+<body>
+    <div id="root">
+        <div class="logo">
+            <img width="200" :src="logo" alt="">
+        </div>
+
+        <div class="aggiungiProdotto">
+            <input type="text" v-model="nuovoProdotto" placeholder="Inserisci un nuvo prodotto">
+            <button @click="aggiungiProdotto" >Aggiungi prodotto</button>
+        </div>
+
+        <div class="listaSpesa" v-if="listaSpesa.length > 0">
+            <div class="lista" v-for="(lista, index) in listaSpesa" >{{lista}} 
+                <i class="fas fa-times-circle" @click="removeTask(index)"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- JS  -->
+    <script src="main.js"></script>
+</body>
+</html>
