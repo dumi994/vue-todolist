@@ -28,9 +28,14 @@
                 <i class="fas fa-times-circle" @click="rimuoviProdotto(index)"></i>
             </div>
         </div>
+        
 
         <div class="presoTutto" v-else>
             <p>Il tuo frigo è pieno</p>
+        </div>
+
+        <div class="prodCheck">
+            <div class="checked" v-for="(elemento, index) in prodottiComprati">{{elemento}}</div>
         </div>
     </div>
 
