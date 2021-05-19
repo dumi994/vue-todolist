@@ -16,6 +16,7 @@ Ricordate di scrivere le istruzioni prima di iniziare a lavorare cercate di desc
 const app = new Vue ({
     el: '#root',
     data: {
+        nuovoProdotto: '',
         //La nostra todo list avrá alcune tasks di default predefinite✅
         prodottiComprati: [],
         listaSpesa:[
@@ -40,9 +41,12 @@ const app = new Vue ({
             this.listaSpesa.splice(index, 1)
         },
         //aggiungi il prodotto alla lista acquistati
-        prodottoAcq(index){
-            this.nuovoProdotto.push(this.prodottiComprati);
-            console.log(this.prodottiComprati);
+        prodottoAcq(index, lista){
+            this.prodottiComprati.push(lista)
+            console.log(lista);
+            this.listaSpesa.splice(index, 1)
+           /*  this.nuovoProdotto.push(this.prodottiComprati);
+            console.log(this.prodottiComprati); */
         }
     }
 })

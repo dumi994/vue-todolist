@@ -18,13 +18,13 @@
         </div>
 
         <div class="aggiungiProdotto">
-            <input type="text" v-model="nuovoProdotto" placeholder="Inserisci un nuvo prodotto">
+            <input type="text" v-model="nuovoProdotto" placeholder="Inserisci un nuvo prodotto" minlength="5">
             <button @click="aggiungiProdotto" >Aggiungi prodotto</button>
         </div>
 
         <div class="listaSpesa" v-if="listaSpesa.length > 0">
             <div class="lista" v-for="(lista, index) in listaSpesa" >{{lista}} 
-                <i class="fas fa-user-check" @click="prodottoAcq"></i>
+                <i class="fas fa-clipboard-check" @click="prodottoAcq(index, listaSpesa[index])"></i>
                 <i class="fas fa-times-circle" @click="rimuoviProdotto(index)"></i>
             </div>
         </div>
