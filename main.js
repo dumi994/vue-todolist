@@ -6,7 +6,7 @@ Funzionalitá:
 
 Se non ci sono piu task nella lista, mostrate un messaggio tipo "Nulla da fare" ✅
 Inoltre L'utente vuole poter modificare una task giá inserita ❌
-ma vuole anche poter indicare che la task é stata completata (con un icona cliccabile)❌
+ma vuole anche poter indicare che la task é stata completata (con un icona cliccabile)✅
 Quando l'utente inserisce una task ha due modi per salvarla: o preme il pulsante add✅ o preme il taso Enter della tastiera.❌
  Attenzione: l'utente non deve inserire tasks vuote ma almeno un tot di caratteri.❌
 Da tenere a mente:
@@ -42,11 +42,34 @@ const app = new Vue ({
         },
         //aggiungi il prodotto alla lista acquistati
         prodottoAcq(index, lista){
-            this.prodottiComprati.push(lista)
+            this.prodottiComprati.push(lista) // pusha in un nuovo array gli elementi checkati
             console.log(lista);
-            this.listaSpesa.splice(index, 1)
-           /*  this.nuovoProdotto.push(this.prodottiComprati);
-            console.log(this.prodottiComprati); */
+            this.listaSpesa.splice(index, 1); //toglie dalla lista spesa gli elementi
+        },
+        //Rimuove il prodotto dalla lista checked e li rimette nella lista da acquistare
+
+        ritornaProdotto(index, lista){
+            this.prodottiComprati.splice(index, 1),
+            
+            this.prodottiComprati.push(this.nuovoProdotto) // PERCHE SENZA THIS MI RIMUOVE L ELEMENTO MA CON IL THIS MI DA ERRORE?
+            
+            /* this.prodottiComprati.splice(index, 1)
+            
+            console.log(lista); */
         }
-    }
-})
+    },
+
+    //Inserisce il nuovo prodotto con il tasto ENTER
+    mounted(){
+        document.addEventListener('keyup', (e) =>{
+            console.log(e.key);
+            if(e.key === 'Enter'){
+                app.aggiungiProdotto()
+            }
+        },
+    )}
+
+
+
+
+});

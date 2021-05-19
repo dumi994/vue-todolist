@@ -13,29 +13,34 @@
 </head>
 <body>
     <div id="root">
+
+        <!-- LOGO -->
         <div class="logo">
+            <h1>Lista della spesa by: </h1>
             <img width="200" :src="logo" alt="">
         </div>
-
+        <!-- INPUT CHE AGGIUNGE IL PRODOTTO ALLA LISTA -->
         <div class="aggiungiProdotto">
-            <input type="text" v-model="nuovoProdotto" placeholder="Inserisci un nuvo prodotto" minlength="5">
+            <input type="text"  v-model="nuovoProdotto" placeholder="Inserisci un nuvo prodotto">
             <button @click="aggiungiProdotto" >Aggiungi prodotto</button>
         </div>
-
+        <!-- BOTTONI CHE SPOSTANO GLI ELEMENTI NEL CESTINO O NEL CARRELLO -->
         <div class="listaSpesa" v-if="listaSpesa.length > 0">
             <div class="lista" v-for="(lista, index) in listaSpesa" >{{lista}} 
                 <i class="fas fa-clipboard-check" @click="prodottoAcq(index, listaSpesa[index])"></i>
                 <i class="fas fa-times-circle" @click="rimuoviProdotto(index)"></i>
             </div>
         </div>
-        
-
+        <!-- LISTA DELLA SPESA VUOTA -->
         <div class="presoTutto" v-else>
             <p>Il tuo frigo è pieno</p>
         </div>
-
+        <!-- AGGIUNGE GLI ELEMENTI IN UNA NUOVA LISTA (CARRELLO, PRODOTTI ACQUISTATI) -->
         <div class="prodCheck">
-            <div class="checked" v-for="(elemento, index) in prodottiComprati">{{elemento}}</div>
+            <div class="checked" v-for="(elemento, index) in prodottiComprati">
+                {{elemento}}
+                <i class="fas fa-undo" @click="ritornaProdotto(index, nuovoProdotto)" ></i>
+            </div>
         </div>
     </div>
 
