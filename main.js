@@ -17,6 +17,7 @@ const app = new Vue ({
     el: '#root',
     data: {
         //La nostra todo list avrá alcune tasks di default predefinite✅
+        prodottiComprati: [],
         listaSpesa:[
             'Frutta ',
             'Zucchine ',
@@ -39,9 +40,9 @@ const app = new Vue ({
             this.listaSpesa.splice(index, 1)
         },
         //aggiungi il prodotto alla lista acquistati
-        prodottoAcq(){
-            this.nuovoProdotto.push(prodottiComprati);
-            console.log(prodottiComprati);
+        prodottoAcq(index){
+            this.nuovoProdotto.push(this.prodottiComprati);
+            console.log(this.prodottiComprati);
         }
     }
 })
