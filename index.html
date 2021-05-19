@@ -24,10 +24,12 @@
 
         <div class="listaSpesa" v-if="listaSpesa.length > 0">
             <div class="lista" v-for="(lista, index) in listaSpesa" >{{lista}} 
+                <i class="fas fa-user-check" @click="prodottoAcq"></i>
                 <i class="fas fa-times-circle" @click="rimuoviProdotto(index)"></i>
             </div>
         </div>
-        <div class="tuttoFatto" v-else>
+
+        <div class="presoTutto" v-else>
             <p>Il tuo frigo è pieno</p>
         </div>
     </div>
