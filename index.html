@@ -26,9 +26,10 @@
         </div>
         <!-- BOTTONI CHE SPOSTANO GLI ELEMENTI NEL CESTINO O NEL CARRELLO -->
         <div class="listaSpesa" v-if="listaSpesa.length > 0">
-            <div class="lista" v-for="(lista, index) in listaSpesa" >{{lista}} 
+            <div class="lista" v-for="(lista, index) in listaSpesa" >
+                <input type="text" v-model="listaSpesa[index] " id="formModificabile"> 
                 <i class="fas fa-clipboard-check" @click="prodottoAcq(index, listaSpesa[index])"></i>
-                <i class="fas fa-times-circle" @click="rimuoviProdotto(index)"></i>
+                <i class="fas fa-times-circle" @click="rimuoviProdotto(index, lista)"></i>
             </div>
         </div>
         <!-- LISTA DELLA SPESA VUOTA -->
@@ -39,9 +40,10 @@
         <div class="prodCheck">
             <div class="checked" v-for="(elemento, index) in prodottiComprati">
                 {{elemento}}
-                <i class="fas fa-undo" @click="ritornaProdotto(index, nuovoProdotto)" ></i>
+                <i class="fas fa-undo" @click="ritornaProdotto(index, prodottiComprati)" ></i>
             </div>
         </div>
+       <!--  <div class="trash" v-if="trash.length > 0 "></div> -->
     </div>
 
 

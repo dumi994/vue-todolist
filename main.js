@@ -26,6 +26,7 @@ const app = new Vue ({
             'Latte ',
             'Pane ',
         ],
+        
         logo:'https://www.boolean.careers/images/misc/logo.png',
     },
     methods: {
@@ -49,13 +50,13 @@ const app = new Vue ({
         //Rimuove il prodotto dalla lista checked e li rimette nella lista da acquistare
 
         ritornaProdotto(index, lista){
-            this.prodottiComprati.splice(index, 1),
-            
-            this.prodottiComprati.push(this.nuovoProdotto) // PERCHE SENZA THIS MI RIMUOVE L ELEMENTO MA CON IL THIS MI DA ERRORE?
-            
-            /* this.prodottiComprati.splice(index, 1)
-            
-            console.log(lista); */
+          
+            let prodottiComprati = this.prodottiComprati.splice(index, 1);
+            this.listaSpesa.push(prodottiComprati[index]);
+ 
+        },
+        updateTask(){
+            alert('task updated')
         }
     },
 
